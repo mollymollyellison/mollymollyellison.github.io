@@ -9,123 +9,148 @@
       font-family: ui-monospace, SFMono-Regular, monospace;
       background: #f6f8fa;
       color: #24292f;
-      padding: 2rem;
-      max-width: 700px;
-      margin: auto;
-      font-size: 15px;
+      margin: 0;
+      display: flex;
     }
 
-    h1 {
-      font-size: 1.4rem;
+    .sidebar {
+      width: 300px;
+      height: 100vh;
+      overflow-y: auto;
+      padding: 2rem;
+      background: #ffffff;
+      border-right: 1px solid #d0d7de;
+    }
+
+    .sidebar h1 {
+      font-size: 1.25rem;
       margin-bottom: 1rem;
     }
 
-    p {
-      margin-bottom: 2rem;
-    }
-
-    details summary {
-      cursor: pointer;
-      list-style: none;
-      position: relative;
-      padding-left: 1.2em;
-      margin: 0.2em 0;
-    }
-
-    details summary::before {
-      content: "├──";
-      position: absolute;
-      left: 0;
-      color: #999;
-    }
-
-    ul {
-      list-style: none;
-      padding-left: 1.5em;
+    .tree {
+      padding: 0;
       margin: 0;
+      list-style: none;
       position: relative;
     }
 
-    ul::before {
-      content: "";
+    .tree ul {
+      list-style: none;
+      margin: 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .tree ul::before {
+      content: '';
       position: absolute;
       top: 0;
-      bottom: 0;
-      left: 0.3em;
-      border-left: 1px solid #ccc;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background: #d0d7de;
     }
 
-    li {
-      padding-left: 1em;
+    .tree li {
+      margin: 0.5rem 0;
+      padding-left: 1rem;
       position: relative;
-      margin: 0.2em 0;
     }
 
-    li::before {
-      content: "├──";
+    .tree li::before {
+      content: '';
       position: absolute;
-      left: -1em;
-      color: #999;
+      top: 0.8em;
+      left: 0;
+      width: 0.75rem;
+      border-top: 1px solid #d0d7de;
     }
 
-    a {
-      color: #0366d6;
-      text-decoration: none;
+    summary {
+      cursor: pointer;
+      list-style: none;
+      padding: 0.2rem 0;
     }
 
-    a:hover {
-      text-decoration: underline;
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary:before {
+      display: inline-block;
+      margin-right: 0.5rem;
+      transform: rotate(90deg);
+      transition: transform 0.2s ease;
+    }
+
+    details:not([open]) summary:before {
+      transform: rotate(0deg);
+    }
+
+    .container {
+      flex: 1;
+      padding: 2rem;
     }
   </style>
 </head>
 <body>
-  <h1>My Index</h1>
-  <p>an index of things I’ve made</p>
-
-  <details open>
-    <summary>Project Index</summary>
-    <ul>
+  <div class="sidebar">
+    <h1>My Index</h1>
+    <ul class="tree">
       <li>
         <details open>
-          <summary>experimental</summary>
+          <summary>Projects</summary>
           <ul>
-            <li>whirlpool-ring</li>
-            <li>midi-bag</li>
+            <li>
+              <details open>
+                <summary>experimental</summary>
+                <ul>
+                  <li>whirlpool-ring</li>
+                  <li>midi-bag</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>client-sites</summary>
+                <ul>
+                  <li>
+                    <details>
+                      <summary>live</summary>
+                      <ul>
+                        <li>sekkle</li>
+                        <li>toohot</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>offline</summary>
+                      <ul>
+                        <li>m6-industrial</li>
+                      </ul>
+                    </details>
+                  </li>
+                </ul>
+              </details>
+            </li>
           </ul>
         </details>
       </li>
       <li>
         <details>
-          <summary>client-sites</summary>
-          <ul>
-            <li>
-              <details>
-                <summary>live</summary>
-                <ul>
-                  <li>sekkle</li>
-                  <li>toohot</li>
-                </ul>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary>offline</summary>
-                <ul>
-                  <li>m6-industrial</li>
-                </ul>
-              </details>
-            </li>
-          </ul>
+          <summary>about</summary>
+        </details>
+      </li>
+      <li>
+        <details>
+          <summary>contact</summary>
         </details>
       </li>
     </ul>
-  </details>
-
-  <details>
-    <summary>about</summary>
-  </details>
-  <details>
-    <summary>contact</summary>
-  </details>
+  </div>
+  <div class="container">
+    <p>Select a category to view details.</p>
+  </div>
 </body>
 </html>
