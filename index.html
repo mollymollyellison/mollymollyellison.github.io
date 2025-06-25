@@ -1,23 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Molly's Portfolio</title>
+  <meta charset="UTF-8" />
+  <title>Molly's Index</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      background: #f6f8fa;
+      color: #24292f;
+      padding: 2rem;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    details summary {
+      cursor: pointer;
+      list-style: none;
+    }
+
+    summary::before {
+      content: "📁 ";
+    }
+
+    li::before {
+      content: "⋆ ";
+      color: #555;
+    }
+
+    ul {
+      list-style: none;
+      padding-left: 1.5em;
+    }
+
+    a {
+      color: #0366d6;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      margin-bottom: 1.5rem;
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <h1>Heading</h1>
-    <p>description</p>
+  <h1>My Index</h1>
+  <p>an index of things I’ve made</p>
 
-    <h2>Projects</h2>
-    
-
-    <h2>Tools</h2>
-  
-
-    <h2>Contact</h2>
-   
-  </main>
+  <details open>
+    <summary>/molly</summary>
+    <ul>
+      <li>
+        <details open>
+          <summary>/projects</summary>
+          <ul>
+            <li>
+              <details open>
+                <summary>/experimental</summary>
+                <ul>
+                  <li>whirlpool-ring</li>
+                  <li>midi-bag</li>
+                </ul>
+              </details>
+            </li>
+            <li>
+              <details>
+                <summary>/client-sites</summary>
+                <ul>
+                  <li>
+                    <details>
+                      <summary>/live</summary>
+                      <ul>
+                        <li>sekkle</li>
+                        <li>toohot</li>
+                      </ul>
+                    </details>
+                  </li>
+                  <li>
+                    <details>
+                      <summary>/offline</summary>
+                      <ul>
+                        <li>m6-industrial</li>
+                      </ul>
+                    </details>
+                  </li>
+                </ul>
+              </details>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li>/about</li>
+      <li>/contact</li>
+    </ul>
+  </details>
 </body>
 </html>
